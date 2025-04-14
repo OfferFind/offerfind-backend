@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OfferFind – Best Deals in One Place</title>
+
+  <!-- SEO Meta Tags -->
+  <meta name="title" content="OfferFind - Best Online Deals & Loots">
+  <meta name="description" content="Discover the latest online shopping deals, discounts, and loots all in one place. Updated directly from top Telegram channels.">
+  <meta name="keywords" content="offers, loots, online deals, discounts, Amazon offers, Flipkart deals, Telegram offers, loot deals">
+  <meta name="author" content="OfferFind Team">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://offerfind.netlify.app/">
+  <meta property="og:title" content="OfferFind - Best Online Deals & Loots">
+  <meta property="og:description" content="Discover the latest deals and loots from top Telegram channels.">
+  <meta property="og:image" content="https://offerfind.netlify.app/assets/logo.png">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://offerfind.netlify.app/">
+  <meta property="twitter:title" content="OfferFind - Best Online Deals & Loots">
+  <meta property="twitter:description" content="Discover the latest deals and loots from top Telegram channels.">
+  <meta property="twitter:image" content="https://offerfind.netlify.app/assets/logo.png">
+
+  <link rel="canonical" href="https://offerfind.netlify.app/" />
+  <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f9f9f9;
+      margin: 0;
+      padding: 0;
+    }
+
+    .header {
+      background-color: #1a1a1a;
+      color: white;
+      padding: 15px 30px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    .logo-container img {
+      height: 50px;
+      margin-right: 10px;
+    }
+
+    .logo-container h1 {
+      margin: 0;
+      font-size: 28px;
+      color: #fff;
+    }
+
+    .search-bar {
+      flex-grow: 1;
+      max-width: 400px;
+      margin-left: auto;
+    }
+
+    #search {
+      padding: 10px;
+      width: 100%;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      outline: none;
+    }
+
+    .categories {
+      text-align: center;
+      margin: 20px 10px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .categories button {
+      margin: 5px;
+      padding: 10px 20px;
+      border: none;
+      background-color: #007bff;
+      color: white;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .categories button:hover {
+      background-color: #0056b3;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1000px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    .offer {
+      background-color: white;
+      padding: 20px;
+      margin-bottom: 15px;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .offer:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .offer h3 {
+      margin-top: 0;
+      color: #333;
+    }
+
+    .offer p {
+      color: #555;
+    }
+
+    .link {
+      display: inline-block;
+      margin-top: 10px;
+      color: #28a745;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .link:hover {
+      text-decoration: underline;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 10px 0;
+      background-color: #333;
+      color: white;
+      margin-top: 40px;
+    }
+
+    .footer a {
+      color: #28a745;
+      text-decoration: none;
+    }
+
+    .footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="logo-container">
+      <img src="/offerfind logo.png" alt="Logo" />
+      <h1>OfferFind</h1>
+    </div>
+    <div class="search-bar">
+      <input type="text" id="search" placeholder="Search products or categories..." onkeyup="filterProducts()" />
+    </div>
+  </header>
+
+  <!-- Categories -->
+  <div class="categories">
+    <button onclick="filterCategory('all')">All</button>
+    <button onclick="filterCategory('Mobiles')">Mobiles</button>
+    <button onclick="filterCategory('Electronics')">Electronics</button>
+    <button onclick="filterCategory('Clothes')">Clothes</button>
+    <button onclick="filterCategory('Footwear')">Footwear</button>
+    <button onclick="filterCategory('Beauty and Personal Care')">Beauty & Personal Care</button>
+    <button onclick="filterCategory('Home & Kitchen')">Home & Kitchen</button>
+    <button onclick="filterCategory('Groceries')">Groceries</button>
+    <button onclick="filterCategory('Toys and Games')">Toys & Games</button>
+    <button onclick="filterCategory('Books')">Books</button>
+    <button onclick="filterCategory('Accessories')">Accessories</button>
+    <button onclick="filterCategory('Others')">Others</button>
+  </div>
+
+  <!-- Offers -->
+  <div class="container">
+    <h2>🔥 Latest Offers</h2>
+    <div id="offer-container"></div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2025 OfferFind | Powered by <a href="" target="_blank">OfferFind Team</a></p>
+  </footer>
+
+  <!-- JavaScript -->
+  <script src="js/script.js"></script>
+</body>
+
+</html>
