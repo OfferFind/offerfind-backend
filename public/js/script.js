@@ -2,7 +2,8 @@ let allOffers = [];
 
 async function fetchOffers() {
   try {
-    const response = await fetch('http://localhost:3000/api/get-offers');
+    const response = await fetch("https://offerfind-backend.onrender.com/api/get-offers")
+
     allOffers = await response.json();
     displayOffers(allOffers);
   } catch (error) {
