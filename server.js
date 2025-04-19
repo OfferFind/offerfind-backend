@@ -108,3 +108,4 @@ setInterval(removeExpiredOffers, 60 * 60 * 1000); // 1 hour interval
 app.listen(PORT, () => {
     console.log(`🚀 Server running at http://localhost:${PORT}`);
 });
+require('./bot');

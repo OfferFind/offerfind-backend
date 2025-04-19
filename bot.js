@@ -32,7 +32,7 @@ bot.on('channel_post', async (msg) => {
             const imageUrl = messageLink ? await fetchImageFromLink(messageLink) : '';
 
             const offerData = {
-                source: msg.chat.title || 'Ecommerce Website Group',
+                source: "Amazon or Flipkart" || 'Ecommerce Website Group',
                 message: messageText,
                 link: messageLink,
                 image: imageUrl,
